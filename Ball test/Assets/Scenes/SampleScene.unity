@@ -578,6 +578,7 @@ GameObject:
   - component: {fileID: 2112444623}
   - component: {fileID: 2112444622}
   - component: {fileID: 2112444627}
+  - component: {fileID: 2112444628}
   m_Layer: 0
   m_Name: Open Sprite Shape
   m_TagString: Untagged
@@ -621,6 +622,7 @@ EdgeCollider2D:
   m_EdgeRadius: 0.27
   m_Points:
   - {x: -8.838071, y: 3.5537357}
+  - {x: -8.691658, y: 3.1619964}
   - {x: -8.48147, y: 2.5996234}
   - {x: -8.147213, y: 1.9338628}
   - {x: -7.7550716, y: 1.3241458}
@@ -636,10 +638,11 @@ EdgeCollider2D:
   - {x: -2.2546527, y: -1.2796392}
   - {x: -1.7071735, y: -1.1495693}
   - {x: -1.189344, y: -0.94103396}
+  - {x: -0.7365317, y: -0.66224575}
   - {x: -0.24769571, y: -0.36127844}
   - {x: 0.041578658, y: -0.19809577}
   - {x: 0.39922088, y: -0.014879285}
-  - {x: 1.048934, y: 0.265413}
+  - {x: 0.9034179, y: 0.22903425}
   - {x: 1.4196767, y: 0.38891888}
   - {x: 1.8200135, y: 0.48867598}
   - {x: 2.1928017, y: 0.5492673}
@@ -650,6 +653,7 @@ EdgeCollider2D:
   - {x: 4.6119246, y: -0.025750952}
   - {x: 5.1812396, y: -0.35631877}
   - {x: 5.724442, y: -0.714899}
+  - {x: 6.2473373, y: -1.0828667}
   - {x: 6.8100357, y: -1.478844}
   - {x: 7.235761, y: -1.762147}
   - {x: 7.7129116, y: -2.0362077}
@@ -659,6 +663,7 @@ EdgeCollider2D:
   - {x: 9.600881, y: -2.227263}
   - {x: 10.071816, y: -1.9589523}
   - {x: 10.565005, y: -1.5163608}
+  - {x: 10.994227, y: -0.9846944}
   - {x: 11.231313, y: -0.69102305}
   m_AdjacentStartPoint: {x: 0, y: 0}
   m_AdjacentEndPoint: {x: 0, y: 0}
@@ -856,6 +861,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Ball: {fileID: 1836875701}
   isFlipped: 0
+--- !u!114 &2112444628
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2112444621}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e9c2c1842e7673448ee9150de57e883, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  starPrefab: {fileID: 2848633340947377289, guid: 998787939ef0ffe45a1dbf5c64524f6c, type: 3}
+  pointsPerSegment: 5
+  startSegmentIndex: 1
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

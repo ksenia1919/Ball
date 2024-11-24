@@ -13,8 +13,8 @@ public class BallController : MonoBehaviour
     public float gravityScale = 1f;
 
     public GameObject track;
-    public float raycastOffset = 0.1f; // Добавлен offset для луча
-    public float maxRaycastDistance = 70f; // Максимальное расстояние луча
+    public float raycastOffset = 0.1f; // Р”РѕР±Р°РІР»РµРЅ offset РґР»СЏ Р»СѓС‡Р°
+    public float maxRaycastDistance = 70f; // РњР°РєСЃРёРјР°Р»СЊРЅРѕРµ СЂР°СЃСЃС‚РѕСЏРЅРёРµ Р»СѓС‡Р°
     public LayerMask trackLayer;
     public EdgeCollider2D _edgeCollider;
 
@@ -55,7 +55,7 @@ public class BallController : MonoBehaviour
         }
         else
         {
-            Debug.LogWarning("Не удалось определить целевую позицию");
+            Debug.LogWarning("РќРµ СѓРґР°Р»РѕСЃСЊ РѕРїСЂРµРґРµР»РёС‚СЊ С†РµР»РµРІСѓСЋ РїРѕР·РёС†РёСЋ");
         }
     }
 
@@ -67,18 +67,18 @@ public class BallController : MonoBehaviour
         Debug.DrawRay(ballPosition, Vector2.up * maxRaycastDistance, Color.red, 0.5f);
         Debug.DrawRay(ballPosition, Vector2.down * maxRaycastDistance, Color.blue, 0.5f);
 
-        RaycastHit2D hit = hitUp.collider != null ? hitUp : hitDown; // Выбираем луч, который столкнулся с трассой
+        RaycastHit2D hit = hitUp.collider != null ? hitUp : hitDown; // Р’С‹Р±РёСЂР°РµРј Р»СѓС‡, РєРѕС‚РѕСЂС‹Р№ СЃС‚РѕР»РєРЅСѓР»СЃСЏ СЃ С‚СЂР°СЃСЃРѕР№
 
         if (hit.collider != null)
         {
-            Vector2 trackNormal = hit.normal; // Направление смещения (перпендикулярно трассе)
-            Vector2 targetPoint = hit.point; // Начальная точка расчета 
+            Vector2 trackNormal = hit.normal; // РќР°РїСЂР°РІР»РµРЅРёРµ СЃРјРµС‰РµРЅРёСЏ (РїРµСЂРїРµРЅРґРёРєСѓР»СЏСЂРЅРѕ С‚СЂР°СЃСЃРµ)
+            Vector2 targetPoint = hit.point; // РќР°С‡Р°Р»СЊРЅР°СЏ С‚РѕС‡РєР° СЂР°СЃС‡РµС‚Р° 
 
-            Debug.DrawRay(hit.point, trackNormal, Color.green, 0.5f); // Отображаем нормаль
+            Debug.DrawRay(hit.point, trackNormal, Color.green, 0.5f); // РћС‚РѕР±СЂР°Р¶Р°РµРј РЅРѕСЂРјР°Р»СЊ
 
-            targetPoint -= trackNormal * trackWidth; // Смещение всегда направлено в противоположную сторону от нормали
+            targetPoint -= trackNormal * trackWidth; // РЎРјРµС‰РµРЅРёРµ РІСЃРµРіРґР° РЅР°РїСЂР°РІР»РµРЅРѕ РІ РїСЂРѕС‚РёРІРѕРїРѕР»РѕР¶РЅСѓСЋ СЃС‚РѕСЂРѕРЅСѓ РѕС‚ РЅРѕСЂРјР°Р»Рё
 
-            Debug.DrawRay(targetPoint, Vector2.up, Color.yellow, 0.5f); // Отображаем целевую позицию
+            Debug.DrawRay(targetPoint, Vector2.up, Color.yellow, 0.5f); // РћС‚РѕР±СЂР°Р¶Р°РµРј С†РµР»РµРІСѓСЋ РїРѕР·РёС†РёСЋ
             return targetPoint;
         }
         else

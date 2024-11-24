@@ -5,6 +5,9 @@ using UnityEngine.UI;
 
 public class StarCounter : MonoBehaviour
 {
+    public ObjectPoolManager poolManager; // Ссылка на менеджер пулов
+    public string starPoolName = "Stars"; // Имя пула звезд
+
     private int counter;
     public Text _textCounter;
 
@@ -30,13 +33,19 @@ public class StarCounter : MonoBehaviour
             if (starAnimation != null)
             {
                 starAnimation.PlayAnimation();
-                Destroy(collision.gameObject, starAnimation.animationDuration);
+                StartCoroutine(ReturnStar(collision.gameObject, starAnimation.animationDuration));
             }
 
             counter++;
             _textCounter.text = counter.ToString();
             PlayerPrefs.SetInt("Star", counter);
         }
+    }
+
+    private IEnumerator ReturnStar(GameObject star, float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        poolManager.ReturnObject(starPoolName, star);
     }
 }
 

@@ -5,6 +5,9 @@ using UnityEngine.U2D;
 
 public class StarSpawner : MonoBehaviour
 {
+    public ObjectPoolManager poolManager; // Ссылка на менеджер пулов
+    public string starPoolName = "Stars"; // Имя пула звезд
+
     public GameObject starPrefab;
     private float gap = 0.8f; // Минимальный промежуток между звездами
     private float offsetX = 0.641929f; // Смещение по X
@@ -69,15 +72,18 @@ public class StarSpawner : MonoBehaviour
                     // Спавним звезду на выбранной стороне, если side не null
                     if (side != null)
                     {
+                        // Получаем объект из пула
+                        GameObject star = GetStar();
                         if (side == "top")
                         {
-                            Instantiate(starPrefab, new Vector2(starPositionTop.x - offsetX, starPositionTop.y), Quaternion.identity);
+                            star.transform.position = new Vector2(starPositionTop.x - offsetX, starPositionTop.y);
                         }
                         else
                         {
-                            Instantiate(starPrefab, new Vector2(starPositionBottom.x - offsetX, starPositionBottom.y), Quaternion.identity);
+                            star.transform.position = new Vector2(starPositionBottom.x - offsetX, starPositionBottom.y);
                         }
                     }
+                
                     previousSide = side;
                 }
             }
@@ -87,6 +93,11 @@ public class StarSpawner : MonoBehaviour
     private Vector2 GetPerpendicularDirection(Vector2 start, Vector2 end)
     {
         return new Vector2(end.y - start.y, -(end.x - start.x)).normalized;
+    }
+
+    GameObject GetStar()
+    {
+        return poolManager.GetObject(starPoolName, starPrefab);
     }
 }
 

@@ -226,6 +226,50 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!1 &481273565
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 481273567}
+  - component: {fileID: 481273566}
+  m_Layer: 0
+  m_Name: Pool
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &481273566
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 481273565}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 393c490ab60b887489c5099bc4d6ed42, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &481273567
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 481273565}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.812077, y: 1.8633404, z: 0.13575642}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -880,6 +924,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 589b7b5f41b14d14383f958b2103b817, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  poolManager: {fileID: 481273566}
+  starPoolName: Stars
   _textCounter: {fileID: 1680631728}
 --- !u!114 &1836875707
 MonoBehaviour:
@@ -901,7 +947,7 @@ MonoBehaviour:
   trackLayer:
     serializedVersion: 2
     m_Bits: 8
-  trackWidth: 1.5
+  _edgeCollider: {fileID: 0}
 --- !u!1 &2112444621
 GameObject:
   m_ObjectHideFlags: 0
@@ -1360,6 +1406,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e9c2c1842e7673448ee9150de57e883, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  poolManager: {fileID: 481273566}
+  starPoolName: Stars
   starPrefab: {fileID: 2848633340947377289, guid: 998787939ef0ffe45a1dbf5c64524f6c, type: 3}
   pointsPerSegment: 5
   startSegmentIndex: 1
@@ -1387,3 +1435,4 @@ SceneRoots:
   - {fileID: 2112444625}
   - {fileID: 1836875705}
   - {fileID: 900457804}
+  - {fileID: 481273567}

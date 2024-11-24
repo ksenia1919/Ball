@@ -5,6 +5,7 @@ public class TrackingBall : MonoBehaviour
     public GameObject _ball;
     public float respawnDistance = 40f;
     private EdgeCollider2D _edgeCollider;
+    private Collider2D _ballCollider;
     private Vector2 _lastContactPoint;
     private Vector2 _initialPosition;
     private bool hasTouchedTrack = false;
@@ -15,9 +16,12 @@ public class TrackingBall : MonoBehaviour
     void Start()
     {
         _edgeCollider = GetComponent<EdgeCollider2D>();
-        _initialPosition = _ball.transform.position; // Сохраняем начальную позицию
-        _lastContactPoint = _ball.transform.position; 
+        _ballCollider = _ball.GetComponent<Collider2D>();
 
+        _initialPosition = _ball.transform.position; // Сохраняем начальную позицию
+        _lastContactPoint = _ball.transform.position;
+
+        
         _initialGravityScale = BallController.instance.gravityScale;
         _initialGravityFlipped = BallController.instance.isFlipped;
 
@@ -27,13 +31,13 @@ public class TrackingBall : MonoBehaviour
     {
         if (_ball == null) return; 
 
-        if (Physics2D.IsTouching(_edgeCollider, _ball.GetComponent<Collider2D>()))
+        if (Physics2D.IsTouching(_edgeCollider, _ballCollider))
         {
             hasTouchedTrack = true; 
             _lastContactPoint = _ball.transform.position;
         }
         
-        if (hasTouchedTrack && !Physics2D.IsTouching(_edgeCollider, _ball.GetComponent<Collider2D>()))
+        if (hasTouchedTrack && !Physics2D.IsTouching(_edgeCollider, _ballCollider))
         {
             float distance = Vector2.Distance(_ball.transform.position, _lastContactPoint);
 

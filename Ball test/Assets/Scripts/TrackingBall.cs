@@ -12,8 +12,6 @@ public class TrackingBall : MonoBehaviour
     private float _initialGravityScale;
     private bool _initialGravityFlipped;
 
-    private float trackWidth = 2f;  // Ширина трассы
-
     void Start()
     {
         _edgeCollider = GetComponent<EdgeCollider2D>();

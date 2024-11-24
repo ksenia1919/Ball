@@ -12,6 +12,8 @@ public class TrackingBall : MonoBehaviour
     private float _initialGravityScale;
     private bool _initialGravityFlipped;
 
+    private float trackWidth = 2f;  // Ширина трассы
+
     void Start()
     {
         _edgeCollider = GetComponent<EdgeCollider2D>();
@@ -19,7 +21,8 @@ public class TrackingBall : MonoBehaviour
         _lastContactPoint = _ball.transform.position; 
 
         _initialGravityScale = BallController.instance.gravityScale;
-        _initialGravityFlipped = BallController.instance.isUpsideDown;
+        _initialGravityFlipped = BallController.instance.isFlipped;
+
     }
 
     void Update()
@@ -54,11 +57,13 @@ public class TrackingBall : MonoBehaviour
         _ball.transform.position = _initialPosition;
         _ball.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
         _ball.GetComponent<Rigidbody2D>().gravityScale = _initialGravityScale;
+        _ball.GetComponent<BallController>().isFlipped = false;
         if (_initialGravityFlipped)
         {
             _ball.GetComponent<Rigidbody2D>().gravityScale *= -1;
         }
     }
+    
 }
 
 

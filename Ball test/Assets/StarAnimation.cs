@@ -3,10 +3,10 @@ using UnityEngine;
 
 public class StarAnimation : MonoBehaviour
 {
-    public float animationDuration = 0.5f; // Длительность анимации
-    public float heightOffset = 1f; // Высота подъема
-    public float startAlpha = 1f; // Начальная прозрачность
-    public float endAlpha = 0f; // Конечная прозрачность
+    public float animationDuration = 0.5f; 
+    public float heightOffset = 1f; 
+    public float startAlpha = 1f; 
+    public float endAlpha = 0f; 
 
     private Vector3 startPosition;
     private SpriteRenderer spriteRenderer;
@@ -34,10 +34,10 @@ public class StarAnimation : MonoBehaviour
 
             float progress = elapsedTime / animationDuration;
 
-            // Перемещение
+            // Relocation
             transform.position = Vector3.Lerp(startPosition, startPosition + Vector3.up * heightOffset, progress);
 
-            // Прозрачность
+            // Transparency
             spriteRenderer.color = new Color(1f, 1f, 1f, Mathf.Lerp(startAlpha, endAlpha, progress));
 
             yield return null;

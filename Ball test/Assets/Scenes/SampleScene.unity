@@ -894,8 +894,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isFlipped: 0
-  isUpsideDown: 0
   gravityScale: 1
+  track: {fileID: 2112444621}
+  raycastOffset: 0.1
+  maxRaycastDistance: 30
+  trackLayer:
+    serializedVersion: 2
+    m_Bits: 8
+  trackWidth: 1.5
 --- !u!1 &2112444621
 GameObject:
   m_ObjectHideFlags: 0
@@ -910,7 +916,7 @@ GameObject:
   - component: {fileID: 2112444622}
   - component: {fileID: 2112444628}
   - component: {fileID: 2112444629}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Open Sprite Shape
   m_TagString: Untagged
   m_Icon: {fileID: 0}
